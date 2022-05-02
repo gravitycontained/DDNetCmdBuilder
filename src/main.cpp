@@ -14,7 +14,7 @@ void cmd_gen() {
 
 	std::string command;
 	if (input.empty()) {
-		command = "ban";
+		command = config::default_command;
 	}
 	else {
 		command = input;
@@ -26,7 +26,7 @@ void cmd_gen() {
 
 	std::string reason;
 	if (input.empty()) {
-		reason = "";
+		reason = config::default_reason;
 	}
 	else {
 		reason = input;
@@ -38,7 +38,7 @@ void cmd_gen() {
 
 	std::string duration;
 	if (input.empty()) {
-		duration = "5";
+		duration = config::default_duration;
 	}
 	else {
 		duration = input;
