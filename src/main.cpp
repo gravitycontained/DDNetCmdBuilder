@@ -19,9 +19,9 @@ void cmd_gen() {
 	else {
 		command = input;
 	}
+	bool is_kick = command == "kick";
 
 	qpl::print("reason   > ");
-
 	input = qpl::get_input();
 
 	std::string reason;
@@ -32,17 +32,23 @@ void cmd_gen() {
 		reason = input;
 	}
 
-	qpl::print("duration > ");
-
-	input = qpl::get_input();
 
 	std::string duration;
-	if (input.empty()) {
-		duration = config::default_duration;
+	if (!is_kick) {
+
+		qpl::print("duration > ");
+
+		input = qpl::get_input();
+
+		if (input.empty()) {
+			duration = config::default_duration;
+		}
+		else {
+			duration = input;
+		}
 	}
-	else {
-		duration = input;
-	}
+
+
 
 
 	qpl::print("ids      > ");
@@ -57,15 +63,31 @@ void cmd_gen() {
 	qpl::println("\nOUTPUT: ");
 	std::string cmd_chain;
 
+	bool first = true;
 	for (auto& id : ids) {
+		if (!first) {
+			cmd_chain += " ";
+		}
+		first = false;
+
 		std::string cmd;
 		if (reason.empty()) {
-			cmd = qpl::to_string(command, " ", id, " ", duration);
+			if (is_kick) {
+				cmd = qpl::to_string(command, " ", id);
+			}
+			else {
+				cmd = qpl::to_string(command, " ", id, " ", duration);
+			}
 		}
 		else {
-			cmd = qpl::to_string(command, " ", id, " ", duration, " ", reason);
+			if (is_kick) {
+				cmd = qpl::to_string(command, " ", id, " ", reason);
+			}
+			else {
+				cmd = qpl::to_string(command, " ", id, " ", duration, " ", reason);
+			}
 		}
-		cmd_chain += cmd + "; ";
+		cmd_chain += cmd + ";";
 	}
 	qpl::println(cmd_chain);
 	qpl::copy_to_clipboard(cmd_chain);
