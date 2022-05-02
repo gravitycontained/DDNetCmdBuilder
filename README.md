@@ -1,4 +1,7 @@
 # DDNetCmdBuilder
+
+this project uses my QPL library: https://github.com/DanielRabl/QPL
+
 creates command chains and copies them into your clipboard (CTRL + V)
 
 default values (from default.cfg)
