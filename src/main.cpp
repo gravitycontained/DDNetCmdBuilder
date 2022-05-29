@@ -116,7 +116,9 @@ void cmd_gen(bool first) {
 		if (line.length() + next_command.length() > 255) {
 			lines.push_back(line);
 			line = L"";
-			first_cmd = true;
+			if (next_command.length()) {
+				next_command = next_command.substr(1u);
+			}
 		}
 		line += next_command;
 	}
