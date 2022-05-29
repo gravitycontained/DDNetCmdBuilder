@@ -1,50 +1,59 @@
 #include <qpl/qpl.hpp>
 
 namespace config {
-	std::string default_command;
-	std::string default_duration;
-	std::string default_reason;
+	std::wstring default_command;
+	std::wstring default_duration;
+	std::wstring default_reason;
+}
+namespace input {
+	std::wstring reason;
+	std::wstring command;
+	std::wstring duration;
+	std::wstring ids;
 }
 
-void cmd_gen() {
+void cmd_gen(bool first) {
 	qpl::print("command  > ");
 
-	auto input = qpl::get_input();
+	auto input = qpl::get_input_wstring();
 
 
-	std::string command;
 	if (input.empty()) {
-		command = config::default_command;
+		if (first) {
+			input::command = config::default_command;
+		}
 	}
 	else {
-		command = input;
+		input::command = input;
 	}
-	bool is_kick = command == "kick";
+	bool is_kick = input::command == L"kick";
 
 	qpl::print("reason   > ");
-	input = qpl::get_input();
+	input = qpl::get_input_wstring();
 
-	std::string reason;
 	if (input.empty()) {
-		reason = config::default_reason;
+		if (first) {
+			input::reason = config::default_reason;
+		}
 	}
 	else {
-		reason = input;
+		input::reason = input;
 	}
 
 
-	std::string duration;
 	if (!is_kick) {
 
 		qpl::print("duration > ");
 
-		input = qpl::get_input();
+		input = qpl::get_input_wstring();
 
 		if (input.empty()) {
-			duration = config::default_duration;
+			if (first) {
+				input::duration = config::default_duration;
+			}
 		}
 		else {
-			duration = input;
+			input::duration = input;
 		}
 	}
 
@@ -52,63 +61,105 @@ void cmd_gen() {
 
 
 	qpl::print("ids      > ");
-	input = qpl::get_input();
-	auto ids = qpl::split_numbers<qpl::u32>(input);
+	input = qpl::get_input_wstring();
 
-	if (ids.empty()) {
-		qpl::println("invalid input, no ids.\n");
-		cmd_gen();
-	}
-
-	qpl::println("\nOUTPUT: ");
-	std::string cmd_chain;
-
-	bool first = true;
-	for (auto& id : ids) {
-		if (!first) {
-			cmd_chain += " ";
+	if (input.empty()) {
+		if (first) {
+			qpl::println("invalid input, no ids.\n");
+			cmd_gen(first);
 		}
-		first = false;
+	}
+	else {
+		input::ids = input;
+	}
+	auto ids = qpl::split_numbers<qpl::u32>(input::ids);
 
-		std::string cmd;
-		if (reason.empty()) {
+	std::vector<std::wstring> commands;
+	for (auto& id : ids) {
+
+		std::wstring cmd;
+		if (input::reason.empty()) {
 			if (is_kick) {
-				cmd = qpl::to_string(command, " ", id);
+				cmd = qpl::to_wstring(input::command, " ", id);
 			}
 			else {
-				cmd = qpl::to_string(command, " ", id, " ", duration);
+				cmd = qpl::to_wstring(input::command, " ", id, " ", input::duration);
 			}
 		}
 		else {
 			if (is_kick) {
-				cmd = qpl::to_string(command, " ", id, " ", reason);
+				cmd = qpl::to_wstring(input::command, " ", id, " ", input::reason);
 			}
 			else {
-				cmd = qpl::to_string(command, " ", id, " ", duration, " ", reason);
+				cmd = qpl::to_wstring(input::command, " ", id, " ", input::duration, " ", input::reason);
 			}
 		}
-		cmd_chain += cmd + ";";
+		commands.push_back(cmd + L";");
 	}
-	qpl::println(cmd_chain);
-	qpl::copy_to_clipboard(cmd_chain);
-	qpl::println("( copied to clipboard )");
+
+	std::wstring line;
+
+	std::vector<std::wstring> lines;
+	bool first_cmd = true;
+	for (auto& cmd : commands) {
+
+		auto current_line = line;
+
+		std::wstring next_command;
+		if (!first_cmd) {
+			next_command += L" ";
+		}
+		first_cmd = false;
+
+		next_command += cmd;
+
+		if (line.length() + next_command.length() > 255) {
+			lines.push_back(line);
+			line = L"";
+			first_cmd = true;
+		}
+		line += next_command;
+	}
+	lines.push_back(line);
+
+	qpl::println("\nOUTPUT: ");
+	if (lines.size() != 1u) {
+		qpl::println("(there are ", lines.size(), " lines because of the 255 character limit in f2)\n");
+	}
+	for (qpl::size i = 0u; i < lines.size(); ++i) {
+		qpl::println(lines[i]);
+		qpl::copy_to_clipboard(lines[i]);
+		if (lines.size() == 1u) {
+			qpl::println("( copied to clipboard )");
+		}
+		else {
+			qpl::print("( copied ", i + 1, " / ", lines.size(), " lines to clipboard )");
+			if (i != lines.size() - 1) {
+				qpl::print(". [ENTER] for next line > ");
+				qpl::get_input_wstring();
+			}
+			qpl::println();
+		}
+	}
 }
 
 int main() {
+	qpl::winsys::enable_utf();
 
 	qpl::println("(C)ReD (ReD#7561, https://github.com/DanielRabl)");
 	qpl::println("creates command chains and copies them into your clipboard (CTRL + V)\n");
 
 	qpl::config config;
-	config.load("default.cfg");
-	config::default_command = config.get(0u);
-	config::default_duration = config.get(1u);
-	config::default_reason = config.get(2u);
+	config.wload("default.cfg");
+	config::default_command = config.wget(0u);
+	config::default_duration = config.wget(1u);
+	config::default_reason = config.wget(2u);
 
 	qpl::println("default values: ");
 	qpl::println(" - if command  is empty: \"", config::default_command, "\" is selected");
 	qpl::println(" - if duration is empty: \"", config::default_duration, "\" is selected");
 	qpl::println(" - if reason   is empty: \"", config::default_reason, "\" is selected");
+	qpl::println("(for any runs beyond the first your previous inputs will be the default values)");
 	qpl::println("\nexample:\n");
 	qpl::println("command  > ban");
 	qpl::println("reason   > blocking");
@@ -119,12 +170,13 @@ int main() {
 	qpl::println("ban 1 10 blocking; ban 5 10 blocking; ban 21 10 blocking;");
 	qpl::println("( copied to clipboard )");
 
-
+	bool first = true;
 	while (true) {
 		qpl::println("\n");
 		qpl::println_repeat("- ", 50);
 		qpl::println("\n");
 
-		cmd_gen();
+		cmd_gen(first);
+		first = false;
 	}
 }
