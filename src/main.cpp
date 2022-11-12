@@ -4,6 +4,7 @@ namespace config {
 	std::wstring default_command;
 	std::wstring default_duration;
 	std::wstring default_reason;
+	std::wstring default_ids;
 }
 namespace input {
 	std::wstring reason;
@@ -13,86 +14,57 @@ namespace input {
 }
 
 void cmd_gen(bool first) {
+
 	qpl::print("command  > ");
-
 	auto input = qpl::get_input_wstring();
-
-
-	if (input.empty()) {
-		if (first) {
-			input::command = config::default_command;
-		}
+	input::command = input;
+	if (input == L"*") {
+		input::command = config::default_command;
 	}
-	else {
-		input::command = input;
-	}
-	bool is_kick = input::command == L"kick";
+	config::default_command = input::command;
 
 	qpl::print("reason   > ");
 	input = qpl::get_input_wstring();
-
-	if (input.empty()) {
-		if (first) {
-			input::reason = config::default_reason;
-		}
+	input::reason = input;
+	if (input == L"*") {
+		input::reason = config::default_reason;
 	}
-	else {
-		input::reason = input;
+	config::default_reason = input::reason;
+
+	qpl::print("duration > ");
+	input = qpl::get_input_wstring();
+	input::duration = input;
+	if (input == L"*") {
+		input::duration = config::default_duration;
 	}
-
-
-	if (!is_kick) {
-
-		qpl::print("duration > ");
-
-		input = qpl::get_input_wstring();
-
-		if (input.empty()) {
-			if (first) {
-				input::duration = config::default_duration;
-			}
-		}
-		else {
-			input::duration = input;
-		}
-	}
-
-
-
+	config::default_duration = input::duration;
 
 	qpl::print("ids      > ");
 	input = qpl::get_input_wstring();
-
-	if (input.empty()) {
-		if (first) {
-			qpl::println("invalid input, no ids.\n");
-			cmd_gen(first);
-		}
+	input::ids = input;
+	if (input == L"*") {
+		input::ids = config::default_ids;
 	}
-	else {
-		input::ids = input;
-	}
-	auto ids = qpl::split_numbers<qpl::u32>(input::ids);
+	config::default_ids = input::ids;
+	auto ids = qpl::split_string_numbers<qpl::u32>(input::ids);
 
 	std::vector<std::wstring> commands;
 	for (auto& id : ids) {
 
+		std::vector<std::wstring> inputs;
+		inputs.push_back(input::command);
+		inputs.push_back(qpl::to_wstring(id));
+		if (!input::duration.empty()) inputs.push_back(input::duration);
+		if (!input::reason.empty()) inputs.push_back(input::reason);
+
 		std::wstring cmd;
-		if (input::reason.empty()) {
-			if (is_kick) {
-				cmd = qpl::to_wstring(input::command, " ", id);
+		bool first = true;
+		for (auto& i : inputs) {
+			if (!first) {
+				cmd += L' ';
 			}
-			else {
-				cmd = qpl::to_wstring(input::command, " ", id, " ", input::duration);
-			}
-		}
-		else {
-			if (is_kick) {
-				cmd = qpl::to_wstring(input::command, " ", id, " ", input::reason);
-			}
-			else {
-				cmd = qpl::to_wstring(input::command, " ", id, " ", input::duration, " ", input::reason);
-			}
+			first = false;
+			cmd += i;
 		}
 		commands.push_back(cmd + L";");
 	}
@@ -158,10 +130,11 @@ int main() {
 	config::default_reason = config.wget(2u);
 
 	qpl::println("default values: ");
-	qpl::println(" - if command  is empty: \"", config::default_command, "\" is selected");
-	qpl::println(" - if duration is empty: \"", config::default_duration, "\" is selected");
-	qpl::println(" - if reason   is empty: \"", config::default_reason, "\" is selected");
-	qpl::println("(for any runs beyond the first your previous inputs will be the default values)");
+	qpl::println(" - if command  is '*': \"", config::default_command, "\" is selected");
+	qpl::println(" - if duration is '*': \"", config::default_duration, "\" is selected");
+	qpl::println(" - if reason   is '*': \"", config::default_reason, "\" is selected");
+	qpl::println("any empty value will be ignored");
+	qpl::println("for any runs beyond the first your previous inputs will be the new default values");
 	qpl::println("\nexample:\n");
 	qpl::println("command  > ban");
 	qpl::println("reason   > blocking");
