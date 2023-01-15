@@ -13,39 +13,91 @@ namespace input {
 	std::wstring ids;
 }
 
+bool all_stars(std::wstring input) {
+	if (input.empty()) {
+		return false;
+	}
+	for (auto& i : input) {
+		if (i != L'*') {
+			return false;
+		}
+	}
+	return true;
+}
+
 void cmd_gen(bool first) {
+	qpl::size skip_next = 0u;
 
 	qpl::print("command  > ");
 	auto input = qpl::get_input_wstring();
 	input::command = input;
+
+	if (all_stars(input)) {
+		skip_next = input.length() - 1;
+		input::command = config::default_command;
+	}
 	if (input == L"*") {
 		input::command = config::default_command;
 	}
 	config::default_command = input::command;
 
 	qpl::print("reason   > ");
-	input = qpl::get_input_wstring();
-	input::reason = input;
-	if (input == L"*") {
+	if (skip_next) {
+		qpl::println("*");
 		input::reason = config::default_reason;
+		--skip_next;
 	}
-	config::default_reason = input::reason;
+	else {
+		input = qpl::get_input_wstring();
+		input::reason = input;
+		if (all_stars(input)) {
+			skip_next = input.length() - 1;
+			input::reason = config::default_reason;
+		}
+		if (input == L"*") {
+			input::reason = config::default_reason;
+		}
+		config::default_reason = input::reason;
+	}
 
 	qpl::print("duration > ");
-	input = qpl::get_input_wstring();
-	input::duration = input;
-	if (input == L"*") {
+	if (skip_next) {
+		qpl::println("*");
 		input::duration = config::default_duration;
+		--skip_next;
 	}
-	config::default_duration = input::duration;
+	else {
+		input = qpl::get_input_wstring();
+		input::duration = input;
+		if (all_stars(input)) {
+			skip_next = input.length() - 1;
+			input::duration = config::default_duration;
+		}
+		if (input == L"*") {
+			input::duration = config::default_duration;
+		}
+		config::default_duration = input::duration;
+	}
 
 	qpl::print("ids      > ");
-	input = qpl::get_input_wstring();
-	input::ids = input;
-	if (input == L"*") {
+	if (skip_next) {
+		qpl::println("*");
 		input::ids = config::default_ids;
+		--skip_next;
 	}
-	config::default_ids = input::ids;
+	else {
+		input = qpl::get_input_wstring();
+		input::ids = input;
+		if (all_stars(input)) {
+			skip_next = input.length() - 1;
+			input::ids = config::default_ids;
+		}
+		if (input == L"*") {
+			input::ids = config::default_ids;
+		}
+		config::default_ids = input::ids;
+	}
+
 	auto ids = qpl::split_string_numbers<qpl::u32>(input::ids);
 
 	std::vector<std::wstring> commands;
