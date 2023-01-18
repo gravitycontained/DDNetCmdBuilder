@@ -1,5 +1,7 @@
 #include <qpl/qpl.hpp>
 
+
+
 namespace config {
 	std::wstring default_command;
 	std::wstring default_duration;
