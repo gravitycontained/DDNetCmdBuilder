@@ -1,5 +1,5 @@
 #include <qpl/qpl.hpp>
-
+#include "C:/dev/projects/VisualStudio2022/VersionUpdater/QPL/src/version_control.hpp"
 
 
 namespace config {
@@ -100,7 +100,7 @@ void cmd_gen(bool first) {
 		config::default_ids = input::ids;
 	}
 
-	auto ids = qpl::split_string_numbers<qpl::u32>(input::ids);
+	auto ids = qpl::string_split_numbers<qpl::u32>(input::ids);
 
 	std::vector<std::wstring> commands;
 	for (auto& id : ids) {
@@ -171,7 +171,14 @@ void cmd_gen(bool first) {
 	}
 }
 
-int main() {
+int main(int argc, char** argv) {
+	if (argc <= 1) {
+		auto result = version_control::search_for_updates(argv[0]);
+		if (result) {
+			return 0;
+		}
+	}
+
 	qpl::winsys::enable_utf();
 
 	qpl::println("(C)ReD (ReD#7561, https://github.com/DanielRabl)");
@@ -198,6 +205,20 @@ int main() {
 	qpl::println("OUTPUT:");
 	qpl::println("ban 1 10 blocking; ban 5 10 blocking; ban 21 10 blocking;");
 	qpl::println("( copied to clipboard )");
+
+
+	if (argc > 1) {
+		std::string output = "";
+		for (qpl::size i = 1u; i < qpl::size_cast(argc); ++i) {
+			if (i != 1u) {
+				output += ' ';
+			}
+			output += argv[i];
+		}
+		qpl::println();
+		qpl::println(" > ", qpl::foreground::aqua, output);
+		qpl::println();
+	}
 
 	bool first = true;
 	while (true) {
