@@ -1,6 +1,6 @@
 #include <qpl/qpl.hpp>
-#include "C:/dev/projects/VisualStudio2022/VersionUpdater/QPL/src/version_control.hpp"
-//#include "C:/projects/VisualStudio2022/VersionUpdater/QPL/src/version_control.hpp"
+//#include "C:/dev/projects/VisualStudio2022/VersionUpdater/QPL/src/version_control.hpp"
+#include "D:/projects/VisualStudio2022/VersionUpdater/QPL/src/version_control.hpp"
 
 namespace config {
 	std::wstring default_command;
@@ -172,6 +172,9 @@ void cmd_gen(bool first) {
 }
 
 int main(int argc, char** argv) {
+	qpl::println(qpl::foreground::bright_white, "(C)ReD (ReD#7561, https://github.com/DanielRabl)");
+	qpl::println("creates command chains and copies them into your clipboard (CTRL + V)\n");
+
 	if (argc <= 1) {
 		auto result = version_control::search_for_updates(argv[0]);
 		if (result) {
@@ -180,9 +183,6 @@ int main(int argc, char** argv) {
 	}
 
 	qpl::winsys::enable_utf();
-
-	qpl::println("(C)ReD (ReD#7561, https://github.com/DanielRabl)");
-	qpl::println("creates command chains and copies them into your clipboard (CTRL + V)\n");
 
 	qpl::config config;
 	config.wload("default.cfg");
