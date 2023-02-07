@@ -173,7 +173,7 @@ void cmd_gen(bool first) {
 
 int main(int argc, char** argv) {
 	qpl::println(qpl::foreground::bright_white, "(C)ReD (ReD#7561, https://github.com/DanielRabl)");
-	qpl::println("creates command chains and copies them into your clipboard (CTRL + V)\n");
+	qpl::println(qpl::foreground::bright_white, "creates command chains and copies them into your clipboard (CTRL + V)\n");
 
 	if (argc <= 1) {
 		auto result = version_control::search_for_updates(argv[0]);
@@ -194,8 +194,9 @@ int main(int argc, char** argv) {
 	qpl::println(" - if command  is '*': \"", config::default_command, "\" is selected");
 	qpl::println(" - if duration is '*': \"", config::default_duration, "\" is selected");
 	qpl::println(" - if reason   is '*': \"", config::default_reason, "\" is selected");
-	qpl::println("any empty value will be ignored");
-	qpl::println("for any runs beyond the first your previous inputs will be the new default values");
+	qpl::println("any empty value will be ignored.");
+	qpl::println("multiple '*' apply for multiple lines.");
+	qpl::println("for any runs beyond the first your previous inputs will be the new default values.");
 	qpl::println("\nexample:\n");
 	qpl::println("command  > ban");
 	qpl::println("reason   > blocking");
