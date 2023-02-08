@@ -218,6 +218,7 @@ int main(int argc, char** argv) {
 		}
 		qpl::println();
 		qpl::println(" > ", qpl::foreground::aqua, output);
+		qpl::println(" > ", qpl::foreground::aqua, qpl::to_string(" version = ", version_control::find_version(argv[0])));
 		qpl::println();
 	}
 
