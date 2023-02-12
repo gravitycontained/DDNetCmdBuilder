@@ -36,6 +36,8 @@ void cmd_gen(bool first) {
 	auto command_ids_right_away = qpl::string_split_numbers<qpl::u32>(input);
 	if (command_ids_right_away.size()) {
 
+		qpl::print("\r");
+		qpl::println("command  > *");
 		qpl::println("reason   > *");
 		qpl::println("duration > *");
 		qpl::println("id       > ", input);
@@ -189,12 +191,12 @@ int main(int argc, char** argv) try {
 	qpl::println(qpl::foreground::bright_white, "(C)ReD (ReD#7561, https://github.com/DanielRabl)");
 	qpl::println(qpl::foreground::bright_white, "creates command chains and copies them into your clipboard (CTRL + V)\n");
 
-	//if (argc <= 1) {
-	//	auto result = version_control::auto_updater(argv[0]);
-	//	if (result) {
-	//		return 0;
-	//	}
-	//}
+	if (argc <= 1) {
+		auto result = version_control::auto_updater(argv[0]);
+		if (result) {
+			return 0;
+		}
+	}
 
 	qpl::winsys::enable_utf();
 
