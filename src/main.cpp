@@ -33,7 +33,7 @@ void cmd_gen(bool first) {
 	qpl::print("command  > ");
 	auto input = qpl::get_input_wstring();
 
-	auto command_ids_right_away = qpl::string_split_numbers<qpl::u32>(input::ids);
+	auto command_ids_right_away = qpl::string_split_numbers<qpl::u32>(input);
 	if (command_ids_right_away.size()) {
 		input::command = config::default_command;
 		input::reason = config::default_reason;
