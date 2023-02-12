@@ -35,6 +35,10 @@ void cmd_gen(bool first) {
 
 	auto command_ids_right_away = qpl::string_split_numbers<qpl::u32>(input);
 	if (command_ids_right_away.size()) {
+
+		qpl::println("reason   > *");
+		qpl::println("duration > *");
+		qpl::println("id       > ", input);
 		input::command = config::default_command;
 		input::reason = config::default_reason;
 		input::duration = config::default_duration;
