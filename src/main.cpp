@@ -1,6 +1,6 @@
 #include <qpl/qpl.hpp>
-//#include "C:/dev/projects/VisualStudio2022/VersionUpdater/QPL/src/version_control.hpp"
-#include "D:/projects/VisualStudio2022/VersionUpdater/QPL/src/version_control.hpp"
+#include "C:/dev/projects/VisualStudio2022/VersionUpdater/QPL/src/version_control.hpp"
+//#include "D:/projects/VisualStudio2022/VersionUpdater/QPL/src/version_control.hpp"
 
 namespace config {
 	std::wstring default_command;
@@ -32,72 +32,82 @@ void cmd_gen(bool first) {
 
 	qpl::print("command  > ");
 	auto input = qpl::get_input_wstring();
-	input::command = input;
 
-	if (all_stars(input)) {
-		skip_next = input.length() - 1;
+	auto command_ids_right_away = qpl::string_split_numbers<qpl::u32>(input::ids);
+	if (command_ids_right_away.size()) {
 		input::command = config::default_command;
-	}
-	if (input == L"*") {
-		input::command = config::default_command;
-	}
-	config::default_command = input::command;
-
-	qpl::print("reason   > ");
-	if (skip_next) {
-		qpl::println("*");
 		input::reason = config::default_reason;
-		--skip_next;
-	}
-	else {
-		input = qpl::get_input_wstring();
-		input::reason = input;
-		if (all_stars(input)) {
-			skip_next = input.length() - 1;
-			input::reason = config::default_reason;
-		}
-		if (input == L"*") {
-			input::reason = config::default_reason;
-		}
-		config::default_reason = input::reason;
-	}
-
-	qpl::print("duration > ");
-	if (skip_next) {
-		qpl::println("*");
 		input::duration = config::default_duration;
-		--skip_next;
+		config::default_ids = input::ids = input;
 	}
 	else {
-		input = qpl::get_input_wstring();
-		input::duration = input;
-		if (all_stars(input)) {
-			skip_next = input.length() - 1;
-			input::duration = config::default_duration;
-		}
-		if (input == L"*") {
-			input::duration = config::default_duration;
-		}
-		config::default_duration = input::duration;
-	}
+		input::command = input;
 
-	qpl::print("ids      > ");
-	if (skip_next) {
-		qpl::println("*");
-		input::ids = config::default_ids;
-		--skip_next;
-	}
-	else {
-		input = qpl::get_input_wstring();
-		input::ids = input;
 		if (all_stars(input)) {
 			skip_next = input.length() - 1;
-			input::ids = config::default_ids;
+			input::command = config::default_command;
 		}
 		if (input == L"*") {
-			input::ids = config::default_ids;
+			input::command = config::default_command;
 		}
-		config::default_ids = input::ids;
+		config::default_command = input::command;
+
+		qpl::print("reason   > ");
+		if (skip_next) {
+			qpl::println("*");
+			input::reason = config::default_reason;
+			--skip_next;
+		}
+		else {
+			input = qpl::get_input_wstring();
+			input::reason = input;
+			if (all_stars(input)) {
+				skip_next = input.length() - 1;
+				input::reason = config::default_reason;
+			}
+			if (input == L"*") {
+				input::reason = config::default_reason;
+			}
+			config::default_reason = input::reason;
+		}
+
+		qpl::print("duration > ");
+		if (skip_next) {
+			qpl::println("*");
+			input::duration = config::default_duration;
+			--skip_next;
+		}
+		else {
+			input = qpl::get_input_wstring();
+			input::duration = input;
+			if (all_stars(input)) {
+				skip_next = input.length() - 1;
+				input::duration = config::default_duration;
+			}
+			if (input == L"*") {
+				input::duration = config::default_duration;
+			}
+			config::default_duration = input::duration;
+		}
+
+		qpl::print("ids      > ");
+		if (skip_next) {
+			qpl::println("*");
+			input::ids = config::default_ids;
+			--skip_next;
+		}
+		else {
+			input = qpl::get_input_wstring();
+			input::ids = input;
+			if (all_stars(input)) {
+				skip_next = input.length() - 1;
+				input::ids = config::default_ids;
+			}
+			if (input == L"*") {
+				input::ids = config::default_ids;
+			}
+			config::default_ids = input::ids;
+		}
 	}
 
 	auto ids = qpl::string_split_numbers<qpl::u32>(input::ids);
@@ -171,16 +181,16 @@ void cmd_gen(bool first) {
 	}
 }
 
-int main(int argc, char** argv) {
+int main(int argc, char** argv) try {
 	qpl::println(qpl::foreground::bright_white, "(C)ReD (ReD#7561, https://github.com/DanielRabl)");
 	qpl::println(qpl::foreground::bright_white, "creates command chains and copies them into your clipboard (CTRL + V)\n");
 
-	if (argc <= 1) {
-		auto result = version_control::search_for_updates(argv[0]);
-		if (result) {
-			return 0;
-		}
-	}
+	//if (argc <= 1) {
+	//	auto result = version_control::auto_updater(argv[0]);
+	//	if (result) {
+	//		return 0;
+	//	}
+	//}
 
 	qpl::winsys::enable_utf();
 
@@ -231,4 +241,8 @@ int main(int argc, char** argv) {
 		cmd_gen(first);
 		first = false;
 	}
+}
+catch (std::exception& any) {
+	qpl::println(qpl::foreground::light_red, "caught exception: ", any.what());
+	qpl::system_pause();
 }
