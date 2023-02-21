@@ -7,6 +7,11 @@ namespace config {
 	std::wstring default_duration;
 	std::wstring default_reason;
 	std::wstring default_ids;
+
+	std::wstring loaded_command;
+	std::wstring loaded_duration;
+	std::wstring loaded_reason;
+	std::wstring loaded_ids;
 }
 namespace input {
 	std::wstring reason;
@@ -15,12 +20,13 @@ namespace input {
 	std::wstring ids;
 }
 
-bool all_stars(std::wstring input) {
+bool all_skips(std::wstring input) {
 	if (input.empty()) {
 		return false;
 	}
 	for (auto& i : input) {
-		if (i != L'*') {
+		bool skip = (i == L'*' || i == L'#');
+		if (!skip) {
 			return false;
 		}
 	}
@@ -49,7 +55,7 @@ void cmd_gen(bool first) {
 	else {
 		input::command = input;
 
-		if (all_stars(input)) {
+		if (all_skips(input)) {
 			skip_next = input.length() - 1;
 			input::command = config::default_command;
 		}
@@ -67,7 +73,7 @@ void cmd_gen(bool first) {
 		else {
 			input = qpl::get_input_wstring();
 			input::reason = input;
-			if (all_stars(input)) {
+			if (all_skips(input)) {
 				skip_next = input.length() - 1;
 				input::reason = config::default_reason;
 			}
@@ -86,7 +92,7 @@ void cmd_gen(bool first) {
 		else {
 			input = qpl::get_input_wstring();
 			input::duration = input;
-			if (all_stars(input)) {
+			if (all_skips(input)) {
 				skip_next = input.length() - 1;
 				input::duration = config::default_duration;
 			}
@@ -105,7 +111,7 @@ void cmd_gen(bool first) {
 		else {
 			input = qpl::get_input_wstring();
 			input::ids = input;
-			if (all_stars(input)) {
+			if (all_skips(input)) {
 				skip_next = input.length() - 1;
 				input::ids = config::default_ids;
 			}
@@ -206,12 +212,17 @@ int main(int argc, char** argv) try {
 	config::default_duration = config.wget(1u);
 	config::default_reason = config.wget(2u);
 
+	config::loaded_command = config::default_command;
+	config::loaded_duration = config::default_duration;
+	config::loaded_reason = config::default_reason;
+
 	qpl::println("default values: ");
-	qpl::println(" - if command  is '*': \"", config::default_command, "\" is selected");
-	qpl::println(" - if duration is '*': \"", config::default_duration, "\" is selected");
-	qpl::println(" - if reason   is '*': \"", config::default_reason, "\" is selected");
+	qpl::println(" - if command  is '*': \"", config::loaded_command, "\" is selected");
+	qpl::println(" - if duration is '*': \"", config::loaded_duration, "\" is selected");
+	qpl::println(" - if reason   is '*': \"", config::loaded_reason, "\" is selected");
 	qpl::println("any empty value will be ignored.");
 	qpl::println("multiple '*' apply for multiple lines.");
+	qpl::println("a '#' will use the default value from config file.");
 	qpl::println("for any runs beyond the first your previous inputs will be the new default values.");
 	qpl::println("\nexample:\n");
 	qpl::println("command  > ban");
