@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{47affbdc-05f8-48dd-8d90-e213aa0f6a83}</ProjectGuid>
+    <RootNamespace>QPL</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>C:\dev\packages\vcpkg\installed\x64-windows-static\include;C:\dev\libraries\QPL\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\dev\packages\vcpkg\installed\x64-windows-static\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>C:\dev\packages\vcpkg\installed\x64-windows-static\include;C:\dev\libraries\QPL\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\dev\packages\vcpkg\installed\x64-windows-static\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>C:\dev\packages\vcpkg\installed\x64-windows-static\include;C:\dev\libraries\QPL\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\dev\packages\vcpkg\installed\x64-windows-static\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>C:\dev\packages\vcpkg\installed\x64-windows-static\include;C:\dev\libraries\QPL\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\dev\packages\vcpkg\installed\x64-windows-static\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>QPL_CIPHER;QPL_RSA;QPL_WINSOCK;QPL_NO_SFML;QPLDLL_EXPORTS;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>gmp.lib;gmpxx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>QPL_CIPHER;QPL_RSA;QPL_WINSOCK;QPL_NO_SFML;QPLDLL_EXPORTS;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>gmp.lib;gmpxx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>QPL_CIPHER;QPL_RSA;QPL_WINSOCK;QPL_NO_SFML;QPLDLL_EXPORTS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>gmp.lib;gmpxx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>QPL_CIPHER;QPL_RSA;QPL_WINSOCK;QPL_NO_SFML;QPLDLL_EXPORTS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>gmp.lib;gmpxx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\bits.cpp" />
+    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\camera.cpp" />
+    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\codec.cpp" />
+    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\color.cpp" />
+    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\compression.cpp" />
+    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\config.cpp" />
+    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\date.cpp" />
+    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\encryption.cpp" />
+    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\filesys.cpp" />
+    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\maths.cpp" />
+    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\memory.cpp" />
+    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\neural_net.cpp" />
+    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\pictures.cpp" />
+    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\QGL\glew.cpp" />
+    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\QGL\shader.cpp" />
+    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\QGL\shape.cpp" />
+    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\QGL\vertex_array.cpp" />
+    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\QSF\drawables.cpp" />
+    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\QSF\event_info.cpp" />
+    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\QSF\framework.cpp" />
+    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\QSF\resources.cpp" />
+    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\QSF\socket.cpp" />
+    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\QSF\ui_controls.cpp" />
+    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\QSF\utility.cpp" />
+    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\random.cpp" />
+    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\string.cpp" />
+    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\system.cpp" />
+    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\time.cpp" />
+    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\winsock.cpp" />
+    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\winsys.cpp" />
+    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\winsys_utils.cpp" />
+    <ClCompile Include="src\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\algorithm.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\bits.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\camera.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\codec.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\color.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\compression.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\config.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\date.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\defines.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\encryption.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\exception.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\filesys.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\fraction.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\intrinsics.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\iterator.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\lut.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\maths.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\memory.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\neural_net.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\number.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\obfuscate.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\path_finding.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\perlin_noise.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\pictures.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\QGL\attributes.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\QGL\glew.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\QGL\shader.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\QGL\shapes.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\QGL\vertex.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\QGL\vertex_array.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\qpl.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\qpldeclspec.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\QSF\drawables.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\QSF\event_info.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\QSF\framework.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\QSF\resources.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\QSF\socket.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\QSF\ui_controls.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\QSF\utility.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\QSF\view.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\QSF\view_control.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\random.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\smooth.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\string.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\system.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\time.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\type_traits.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\vardef.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\vector.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\winsock.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\winsys.hpp" />
+    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\winsys_utils.hpp" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="src\antibot.hpp" />
+    <ClInclude Include="src\antibot_dumps.hpp" />
+    <ClInclude Include="src\antibot_weights.hpp" />
+    <ClInclude Include="src\bans_list.hpp" />
+    <ClInclude Include="src\client_version.hpp" />
+    <ClInclude Include="src\config.hpp" />
+    <ClInclude Include="src\console_input.hpp" />
+    <ClInclude Include="src\hash.hpp" />
+    <ClInclude Include="src\ip.hpp" />
+    <ClInclude Include="src\keys.hpp" />
+    <ClInclude Include="src\log_dump.hpp" />
+    <ClInclude Include="src\log_loader.hpp" />
+    <ClInclude Include="src\parser.hpp" />
+    <ClInclude Include="src\player.hpp" />
+    <ClInclude Include="src\player_list.hpp" />
+    <ClInclude Include="src\regex.hpp" />
+    <ClInclude Include="src\server_dump.hpp" />
+    <ClInclude Include="src\string.hpp" />
+    <ClInclude Include="src\time.hpp" />
+    <ClInclude Include="src\time_stamp.hpp" />
+    <ClInclude Include="src\versions.hpp" />
+    <ClInclude Include="src\vpn_list.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="QPL.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="DDNetAntibot.ico" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

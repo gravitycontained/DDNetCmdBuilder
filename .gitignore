@@ -1,8 +1,0 @@
-x64/
-Debug/
-Release/
-*.vcxproj
-*.vcxproj.filters
-*.vcxproj.user
-resource.h
-*.APS

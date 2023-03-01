@@ -1,5 +1,5 @@
 #include <qpl/qpl.hpp>
-#include "C:/dev/projects/VisualStudio2022/VersionUpdater/QPL/src/version_control.hpp"
+#include "C:/dev/projects/C++/VisualStudio2022/RSAVersionUpdater/QPL/src/version_control.hpp"
 //#include "D:/projects/VisualStudio2022/VersionUpdater/QPL/src/version_control.hpp"
 
 namespace config {
@@ -206,8 +206,12 @@ int main(int argc, char** argv) try {
 
 	qpl::winsys::enable_utf();
 
+	if (!qpl::filesys::exists("cmd.cfg")) {
+		qpl::filesys::write_data_file("default command: ban\ndefault duration: 30\ndefault reason : block on playground", "cmd.cfg");
+	}
+
 	qpl::config config;
-	config.wload("default.cfg");
+	config.wload("cmd.cfg");
 	config::default_command = config.wget(0u);
 	config::default_duration = config.wget(1u);
 	config::default_reason = config.wget(2u);
