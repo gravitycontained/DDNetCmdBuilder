@@ -1,9 +1,0 @@
-﻿  main.cpp
-C:\dev\packages\vcpkg\installed\x64-windows-static\include\gmp.h(1785,19): warning C4244: 'return': conversion from 'mp_limb_t' to 'unsigned long', possible loss of data
-     Creating library C:\dev\projects\C++\VisualStudio2022\DDNetCMD\x64\Release\QPL.lib and object C:\dev\projects\C++\VisualStudio2022\DDNetCMD\x64\Release\QPL.exp
-  Generating code
-  6 of 11611 functions (<0.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    25 functions had inline decision re-evaluated but remain unchanged
-  Finished generating code
-  QPL.vcxproj -> C:\dev\projects\C++\VisualStudio2022\DDNetCMD\x64\Release\QPL.exe

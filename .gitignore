@@ -1,0 +1,10 @@
+x64/
+Debug/
+Release/
+.data/
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.APS
+resource.h
+cmd.cfg
