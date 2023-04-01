@@ -204,6 +204,10 @@ int main(int argc, char** argv) try {
 		}
 	}
 
+	//qpl::println(qpl::yellow, "\nThis application is used soley to update the directory!\nRun the update to use the actual program.");
+	//qpl::system_pause();
+	//return 0;
+
 	qpl::winsys::enable_utf();
 
 	if (!qpl::filesys::exists("cmd.cfg")) {
