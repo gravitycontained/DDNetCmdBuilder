@@ -19,342 +19,186 @@
     <Filter Include="QPL\CPP">
       <UniqueIdentifier>{8ce916a2-d535-434b-9e16-10b46f41f931}</UniqueIdentifier>
     </Filter>
-    <Filter Include="QPL\CPP\QSF">
-      <UniqueIdentifier>{9eba950b-88d6-492a-98bd-7c3a9ffac25e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="QPL\CPP\QGL">
-      <UniqueIdentifier>{1eaf9e04-5d7a-44af-aa68-f82b49c16261}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="QPL\HPP\QSF">
-      <UniqueIdentifier>{ec68aea0-7176-4fef-8ae0-2388aadca7a1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="QPL\HPP\QGL">
-      <UniqueIdentifier>{8178c299-d019-44c4-b21f-2b5edc6a2d86}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\QGL\glew.cpp">
-      <Filter>QPL\CPP\QGL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\QGL\shader.cpp">
-      <Filter>QPL\CPP\QGL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\QGL\shape.cpp">
-      <Filter>QPL\CPP\QGL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\QGL\vertex_array.cpp">
-      <Filter>QPL\CPP\QGL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\QSF\drawables.cpp">
-      <Filter>QPL\CPP\QSF</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\QSF\event_info.cpp">
-      <Filter>QPL\CPP\QSF</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\QSF\framework.cpp">
-      <Filter>QPL\CPP\QSF</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\QSF\resources.cpp">
-      <Filter>QPL\CPP\QSF</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\QSF\socket.cpp">
-      <Filter>QPL\CPP\QSF</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\QSF\ui_controls.cpp">
-      <Filter>QPL\CPP\QSF</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\QSF\utility.cpp">
-      <Filter>QPL\CPP\QSF</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\bits.cpp">
+    <ClCompile Include="..\..\..\..\libraries\qpl\src\qpl\bits.cpp">
       <Filter>QPL\CPP</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\camera.cpp">
+    <ClCompile Include="..\..\..\..\libraries\qpl\src\qpl\camera.cpp">
       <Filter>QPL\CPP</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\codec.cpp">
+    <ClCompile Include="..\..\..\..\libraries\qpl\src\qpl\codec.cpp">
       <Filter>QPL\CPP</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\color.cpp">
+    <ClCompile Include="..\..\..\..\libraries\qpl\src\qpl\color.cpp">
       <Filter>QPL\CPP</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\compression.cpp">
+    <ClCompile Include="..\..\..\..\libraries\qpl\src\qpl\compression.cpp">
       <Filter>QPL\CPP</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\config.cpp">
+    <ClCompile Include="..\..\..\..\libraries\qpl\src\qpl\config.cpp">
       <Filter>QPL\CPP</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\date.cpp">
+    <ClCompile Include="..\..\..\..\libraries\qpl\src\qpl\date.cpp">
       <Filter>QPL\CPP</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\encryption.cpp">
+    <ClCompile Include="..\..\..\..\libraries\qpl\src\qpl\encryption.cpp">
       <Filter>QPL\CPP</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\filesys.cpp">
+    <ClCompile Include="..\..\..\..\libraries\qpl\src\qpl\filesys.cpp">
       <Filter>QPL\CPP</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\maths.cpp">
+    <ClCompile Include="..\..\..\..\libraries\qpl\src\qpl\maths.cpp">
       <Filter>QPL\CPP</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\memory.cpp">
+    <ClCompile Include="..\..\..\..\libraries\qpl\src\qpl\memory.cpp">
       <Filter>QPL\CPP</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\neural_net.cpp">
+    <ClCompile Include="..\..\..\..\libraries\qpl\src\qpl\neural_net.cpp">
       <Filter>QPL\CPP</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\pictures.cpp">
+    <ClCompile Include="..\..\..\..\libraries\qpl\src\qpl\pictures.cpp">
       <Filter>QPL\CPP</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\random.cpp">
+    <ClCompile Include="..\..\..\..\libraries\qpl\src\qpl\random.cpp">
       <Filter>QPL\CPP</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\string.cpp">
+    <ClCompile Include="..\..\..\..\libraries\qpl\src\qpl\string.cpp">
       <Filter>QPL\CPP</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\system.cpp">
+    <ClCompile Include="..\..\..\..\libraries\qpl\src\qpl\system.cpp">
       <Filter>QPL\CPP</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\time.cpp">
+    <ClCompile Include="..\..\..\..\libraries\qpl\src\qpl\time.cpp">
       <Filter>QPL\CPP</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\winsock.cpp">
+    <ClCompile Include="..\..\..\..\libraries\qpl\src\qpl\winsock.cpp">
       <Filter>QPL\CPP</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\winsys.cpp">
+    <ClCompile Include="..\..\..\..\libraries\qpl\src\qpl\winsys.cpp">
       <Filter>QPL\CPP</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\libraries\QPL\src\qpl\winsys_utils.cpp">
+    <ClCompile Include="..\..\..\..\libraries\qpl\src\qpl\winsys_utils.cpp">
       <Filter>QPL\CPP</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\QSF\drawables.hpp">
-      <Filter>QPL\HPP\QSF</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\QSF\event_info.hpp">
-      <Filter>QPL\HPP\QSF</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\QSF\framework.hpp">
-      <Filter>QPL\HPP\QSF</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\QSF\resources.hpp">
-      <Filter>QPL\HPP\QSF</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\QSF\socket.hpp">
-      <Filter>QPL\HPP\QSF</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\QSF\ui_controls.hpp">
-      <Filter>QPL\HPP\QSF</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\QSF\utility.hpp">
-      <Filter>QPL\HPP\QSF</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\QSF\view.hpp">
-      <Filter>QPL\HPP\QSF</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\QSF\view_control.hpp">
-      <Filter>QPL\HPP\QSF</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\QGL\attributes.hpp">
-      <Filter>QPL\HPP\QGL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\QGL\glew.hpp">
-      <Filter>QPL\HPP\QGL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\QGL\shader.hpp">
-      <Filter>QPL\HPP\QGL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\QGL\shapes.hpp">
-      <Filter>QPL\HPP\QGL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\QGL\vertex.hpp">
-      <Filter>QPL\HPP\QGL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\QGL\vertex_array.hpp">
-      <Filter>QPL\HPP\QGL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\algorithm.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\bits.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\camera.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\codec.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\color.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\compression.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\config.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\date.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\defines.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\encryption.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\exception.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\filesys.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\fraction.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\intrinsics.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\iterator.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\lut.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\maths.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\memory.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\neural_net.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\number.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\obfuscate.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\path_finding.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\perlin_noise.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\pictures.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\qpl.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\qpldeclspec.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\random.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\smooth.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\string.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\system.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\time.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\type_traits.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\vardef.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\vector.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\winsock.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\winsys.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\libraries\QPL\include\qpl\winsys_utils.hpp">
-      <Filter>QPL\HPP</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>QPL</Filter>
     </ClInclude>
-    <ClInclude Include="src\antibot.hpp">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\algorithm.hpp">
+      <Filter>QPL\HPP</Filter>
     </ClInclude>
-    <ClInclude Include="src\antibot_dumps.hpp">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\bits.hpp">
+      <Filter>QPL\HPP</Filter>
     </ClInclude>
-    <ClInclude Include="src\antibot_weights.hpp">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\camera.hpp">
+      <Filter>QPL\HPP</Filter>
     </ClInclude>
-    <ClInclude Include="src\bans_list.hpp">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\codec.hpp">
+      <Filter>QPL\HPP</Filter>
     </ClInclude>
-    <ClInclude Include="src\client_version.hpp">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\color.hpp">
+      <Filter>QPL\HPP</Filter>
     </ClInclude>
-    <ClInclude Include="src\config.hpp">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\compression.hpp">
+      <Filter>QPL\HPP</Filter>
     </ClInclude>
-    <ClInclude Include="src\console_input.hpp">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\config.hpp">
+      <Filter>QPL\HPP</Filter>
     </ClInclude>
-    <ClInclude Include="src\hash.hpp">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\date.hpp">
+      <Filter>QPL\HPP</Filter>
     </ClInclude>
-    <ClInclude Include="src\ip.hpp">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\defines.hpp">
+      <Filter>QPL\HPP</Filter>
     </ClInclude>
-    <ClInclude Include="src\keys.hpp">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\encryption.hpp">
+      <Filter>QPL\HPP</Filter>
     </ClInclude>
-    <ClInclude Include="src\log_dump.hpp">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\exception.hpp">
+      <Filter>QPL\HPP</Filter>
     </ClInclude>
-    <ClInclude Include="src\log_loader.hpp">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\filesys.hpp">
+      <Filter>QPL\HPP</Filter>
     </ClInclude>
-    <ClInclude Include="src\parser.hpp">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\fraction.hpp">
+      <Filter>QPL\HPP</Filter>
     </ClInclude>
-    <ClInclude Include="src\player.hpp">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\intrinsics.hpp">
+      <Filter>QPL\HPP</Filter>
     </ClInclude>
-    <ClInclude Include="src\player_list.hpp">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\iterator.hpp">
+      <Filter>QPL\HPP</Filter>
     </ClInclude>
-    <ClInclude Include="src\regex.hpp">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\lut.hpp">
+      <Filter>QPL\HPP</Filter>
     </ClInclude>
-    <ClInclude Include="src\server_dump.hpp">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\maths.hpp">
+      <Filter>QPL\HPP</Filter>
     </ClInclude>
-    <ClInclude Include="src\string.hpp">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\memory.hpp">
+      <Filter>QPL\HPP</Filter>
     </ClInclude>
-    <ClInclude Include="src\time.hpp">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\neural_net.hpp">
+      <Filter>QPL\HPP</Filter>
     </ClInclude>
-    <ClInclude Include="src\time_stamp.hpp">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\number.hpp">
+      <Filter>QPL\HPP</Filter>
     </ClInclude>
-    <ClInclude Include="src\versions.hpp">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\obfuscate.hpp">
+      <Filter>QPL\HPP</Filter>
     </ClInclude>
-    <ClInclude Include="src\vpn_list.hpp">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\path_finding.hpp">
+      <Filter>QPL\HPP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\perlin_noise.hpp">
+      <Filter>QPL\HPP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\pictures.hpp">
+      <Filter>QPL\HPP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\qpl.hpp">
+      <Filter>QPL\HPP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\qpldeclspec.hpp">
+      <Filter>QPL\HPP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\random.hpp">
+      <Filter>QPL\HPP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\smooth.hpp">
+      <Filter>QPL\HPP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\string.hpp">
+      <Filter>QPL\HPP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\system.hpp">
+      <Filter>QPL\HPP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\time.hpp">
+      <Filter>QPL\HPP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\type_traits.hpp">
+      <Filter>QPL\HPP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\vardef.hpp">
+      <Filter>QPL\HPP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\vector.hpp">
+      <Filter>QPL\HPP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\winsock.hpp">
+      <Filter>QPL\HPP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\winsys.hpp">
+      <Filter>QPL\HPP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\libraries\qpl\include\qpl\winsys_utils.hpp">
+      <Filter>QPL\HPP</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

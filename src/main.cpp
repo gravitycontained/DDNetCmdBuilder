@@ -1,5 +1,5 @@
 #include <qpl/qpl.hpp>
-#include "C:/dev/projects/C++/VisualStudio2022/RSAVersionUpdater/QPL/src/version_control.hpp"
+#include "C:/dev/projects/VisualStudio2022/RSAVersionUpdater/QPL/src/version_control.hpp"
 //#include "D:/projects/VisualStudio2022/VersionUpdater/QPL/src/version_control.hpp"
 
 namespace config {
