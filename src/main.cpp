@@ -204,68 +204,68 @@ int main(int argc, char** argv) try {
 		}
 	}
 
-	//qpl::println(qpl::yellow, "\nThis application is used soley to update the directory!\nRun the update to use the actual program.");
-	//qpl::system_pause();
-	//return 0;
+	qpl::println(qpl::yellow, "\nThis application is used soley to update the directory!\nRun the update to use the actual program.");
+	qpl::system_pause();
+	return 0;
 
-	qpl::winsys::enable_utf();
-
-	if (!qpl::filesys::exists("cmd.cfg")) {
-		qpl::filesys::write_data_file("default command: ban\ndefault duration: 30\ndefault reason : block on playground", "cmd.cfg");
-	}
-
-	qpl::config config;
-	config.wload("cmd.cfg");
-	config::default_command = config.wget(0u);
-	config::default_duration = config.wget(1u);
-	config::default_reason = config.wget(2u);
-
-	config::loaded_command = config::default_command;
-	config::loaded_duration = config::default_duration;
-	config::loaded_reason = config::default_reason;
-
-	qpl::println("default values: ");
-	qpl::println(" - if command  is '*': \"", config::loaded_command, "\" is selected");
-	qpl::println(" - if duration is '*': \"", config::loaded_duration, "\" is selected");
-	qpl::println(" - if reason   is '*': \"", config::loaded_reason, "\" is selected");
-	qpl::println("any empty value will be ignored.");
-	qpl::println("multiple '*' apply for multiple lines.");
-	qpl::println("a '#' will use the default value from config file.");
-	qpl::println("for any runs beyond the first your previous inputs will be the new default values.");
-	qpl::println("\nexample:\n");
-	qpl::println("command  > ban");
-	qpl::println("reason   > blocking");
-	qpl::println("duration > 10");
-	qpl::println("ids      > 1, 5, 21");
-	qpl::println("");
-	qpl::println("OUTPUT:");
-	qpl::println("ban 1 10 blocking; ban 5 10 blocking; ban 21 10 blocking;");
-	qpl::println("( copied to clipboard )");
-
-
-	if (argc > 1) {
-		std::string output = "";
-		for (qpl::size i = 1u; i < qpl::size_cast(argc); ++i) {
-			if (i != 1u) {
-				output += ' ';
-			}
-			output += argv[i];
-		}
-		qpl::println();
-		qpl::println(" > ", qpl::foreground::aqua, output);
-		qpl::println(" > ", qpl::foreground::aqua, qpl::to_string(" version = ", version_control::find_version(argv[0])));
-		qpl::println();
-	}
-
-	bool first = true;
-	while (true) {
-		qpl::println("\n");
-		qpl::println_repeat("- ", 50);
-		qpl::println("\n");
-
-		cmd_gen(first);
-		first = false;
-	}
+	//qpl::winsys::enable_utf();
+	//
+	//if (!qpl::filesys::exists("cmd.cfg")) {
+	//	qpl::filesys::write_data_file("default command: ban\ndefault duration: 30\ndefault reason : block on playground", "cmd.cfg");
+	//}
+	//
+	//qpl::config config;
+	//config.wload("cmd.cfg");
+	//config::default_command = config.wget(0u);
+	//config::default_duration = config.wget(1u);
+	//config::default_reason = config.wget(2u);
+	//
+	//config::loaded_command = config::default_command;
+	//config::loaded_duration = config::default_duration;
+	//config::loaded_reason = config::default_reason;
+	//
+	//qpl::println("default values: ");
+	//qpl::println(" - if command  is '*': \"", config::loaded_command, "\" is selected");
+	//qpl::println(" - if duration is '*': \"", config::loaded_duration, "\" is selected");
+	//qpl::println(" - if reason   is '*': \"", config::loaded_reason, "\" is selected");
+	//qpl::println("any empty value will be ignored.");
+	//qpl::println("multiple '*' apply for multiple lines.");
+	//qpl::println("a '#' will use the default value from config file.");
+	//qpl::println("for any runs beyond the first your previous inputs will be the new default values.");
+	//qpl::println("\nexample:\n");
+	//qpl::println("command  > ban");
+	//qpl::println("reason   > blocking");
+	//qpl::println("duration > 10");
+	//qpl::println("ids      > 1, 5, 21");
+	//qpl::println("");
+	//qpl::println("OUTPUT:");
+	//qpl::println("ban 1 10 blocking; ban 5 10 blocking; ban 21 10 blocking;");
+	//qpl::println("( copied to clipboard )");
+	//
+	//
+	//if (argc > 1) {
+	//	std::string output = "";
+	//	for (qpl::size i = 1u; i < qpl::size_cast(argc); ++i) {
+	//		if (i != 1u) {
+	//			output += ' ';
+	//		}
+	//		output += argv[i];
+	//	}
+	//	qpl::println();
+	//	qpl::println(" > ", qpl::foreground::aqua, output);
+	//	qpl::println(" > ", qpl::foreground::aqua, qpl::to_string(" version = ", version_control::find_version(argv[0])));
+	//	qpl::println();
+	//}
+	//
+	//bool first = true;
+	//while (true) {
+	//	qpl::println("\n");
+	//	qpl::println_repeat("- ", 50);
+	//	qpl::println("\n");
+	//
+	//	cmd_gen(first);
+	//	first = false;
+	//}
 }
 catch (std::exception& any) {
 	qpl::println(qpl::foreground::light_red, "caught exception: ", any.what());
